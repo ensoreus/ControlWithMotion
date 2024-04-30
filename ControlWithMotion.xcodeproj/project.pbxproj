@@ -9,25 +9,58 @@
 /* Begin PBXBuildFile section */
 		CFD4328B2BE0FA0C00963609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328A2BE0FA0C00963609 /* AppDelegate.swift */; };
 		CFD4328D2BE0FA0C00963609 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */; };
-		CFD4328F2BE0FA0C00963609 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328E2BE0FA0C00963609 /* ViewController.swift */; };
+		CFD4328F2BE0FA0C00963609 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328E2BE0FA0C00963609 /* PlaybackViewController.swift */; };
 		CFD432922BE0FA0D00963609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD432902BE0FA0D00963609 /* Main.storyboard */; };
 		CFD432942BE0FA1000963609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD432932BE0FA1000963609 /* Assets.xcassets */; };
 		CFD432972BE0FA1000963609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD432952BE0FA1000963609 /* LaunchScreen.storyboard */; };
+		CFD4329F2BE0FA8500963609 /* GyroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4329E2BE0FA8500963609 /* GyroProvider.swift */; };
+		CFD432A12BE0FAAA00963609 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432A02BE0FAAA00963609 /* Factory.swift */; };
+		CFD432A32BE0FAC500963609 /* MockedGyroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */; };
+		CFD432AD2BE101CE00963609 /* MotionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432AC2BE101CE00963609 /* MotionTests.swift */; };
+		CFD432B32BE101D500963609 /* GyroProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432A42BE1018A00963609 /* GyroProviderTests.swift */; };
+		CFD432B42BE102DE00963609 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432A02BE0FAAA00963609 /* Factory.swift */; };
+		CFD432B52BE10CA300963609 /* MockedGyroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */; };
+		CFD432B62BE10CAF00963609 /* GyroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4329E2BE0FA8500963609 /* GyroProvider.swift */; };
+		CFD432B82BE10E1800963609 /* WeAreGoingOnBullrun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CFD432B72BE10E1800963609 /* WeAreGoingOnBullrun.mp4 */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFD432AE2BE101CE00963609 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFD4327F2BE0FA0C00963609 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFD432862BE0FA0C00963609;
+			remoteInfo = ControlWithMotion;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CFD432872BE0FA0C00963609 /* ControlWithMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlWithMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD4328A2BE0FA0C00963609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CFD4328E2BE0FA0C00963609 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFD4328E2BE0FA0C00963609 /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
 		CFD432912BE0FA0D00963609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFD432932BE0FA1000963609 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFD432962BE0FA1000963609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFD432982BE0FA1000963609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD4329E2BE0FA8500963609 /* GyroProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroProvider.swift; sourceTree = "<group>"; };
+		CFD432A02BE0FAAA00963609 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedGyroProvider.swift; sourceTree = "<group>"; };
+		CFD432A42BE1018A00963609 /* GyroProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroProviderTests.swift; sourceTree = "<group>"; };
+		CFD432AA2BE101CE00963609 /* MotionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD432AC2BE101CE00963609 /* MotionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionTests.swift; sourceTree = "<group>"; };
+		CFD432B72BE10E1800963609 /* WeAreGoingOnBullrun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeAreGoingOnBullrun.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CFD432842BE0FA0C00963609 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD432A72BE101CE00963609 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD432892BE0FA0C00963609 /* ControlWithMotion */,
+				CFD432AB2BE101CE00963609 /* MotionTests */,
 				CFD432882BE0FA0C00963609 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD432872BE0FA0C00963609 /* ControlWithMotion.app */,
+				CFD432AA2BE101CE00963609 /* MotionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,13 +93,26 @@
 			children = (
 				CFD4328A2BE0FA0C00963609 /* AppDelegate.swift */,
 				CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */,
-				CFD4328E2BE0FA0C00963609 /* ViewController.swift */,
+				CFD4328E2BE0FA0C00963609 /* PlaybackViewController.swift */,
+				CFD4329E2BE0FA8500963609 /* GyroProvider.swift */,
+				CFD432A02BE0FAAA00963609 /* Factory.swift */,
+				CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */,
 				CFD432902BE0FA0D00963609 /* Main.storyboard */,
 				CFD432932BE0FA1000963609 /* Assets.xcassets */,
 				CFD432952BE0FA1000963609 /* LaunchScreen.storyboard */,
 				CFD432982BE0FA1000963609 /* Info.plist */,
 			);
 			path = ControlWithMotion;
+			sourceTree = "<group>";
+		};
+		CFD432AB2BE101CE00963609 /* MotionTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFD432B72BE10E1800963609 /* WeAreGoingOnBullrun.mp4 */,
+				CFD432A42BE1018A00963609 /* GyroProviderTests.swift */,
+				CFD432AC2BE101CE00963609 /* MotionTests.swift */,
+			);
+			path = MotionTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +135,24 @@
 			productReference = CFD432872BE0FA0C00963609 /* ControlWithMotion.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CFD432A92BE101CE00963609 /* MotionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFD432B02BE101CE00963609 /* Build configuration list for PBXNativeTarget "MotionTests" */;
+			buildPhases = (
+				CFD432A62BE101CE00963609 /* Sources */,
+				CFD432A72BE101CE00963609 /* Frameworks */,
+				CFD432A82BE101CE00963609 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFD432AF2BE101CE00963609 /* PBXTargetDependency */,
+			);
+			name = MotionTests;
+			productName = MotionTests;
+			productReference = CFD432AA2BE101CE00963609 /* MotionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +165,10 @@
 				TargetAttributes = {
 					CFD432862BE0FA0C00963609 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					CFD432A92BE101CE00963609 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = CFD432862BE0FA0C00963609;
 					};
 				};
 			};
@@ -116,6 +186,7 @@
 			projectRoot = "";
 			targets = (
 				CFD432862BE0FA0C00963609 /* ControlWithMotion */,
+				CFD432A92BE101CE00963609 /* MotionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +202,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CFD432A82BE101CE00963609 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD432B82BE10E1800963609 /* WeAreGoingOnBullrun.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,13 +217,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFD4328F2BE0FA0C00963609 /* ViewController.swift in Sources */,
+				CFD4328F2BE0FA0C00963609 /* PlaybackViewController.swift in Sources */,
+				CFD4329F2BE0FA8500963609 /* GyroProvider.swift in Sources */,
+				CFD432A32BE0FAC500963609 /* MockedGyroProvider.swift in Sources */,
 				CFD4328B2BE0FA0C00963609 /* AppDelegate.swift in Sources */,
 				CFD4328D2BE0FA0C00963609 /* SceneDelegate.swift in Sources */,
+				CFD432A12BE0FAAA00963609 /* Factory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD432A62BE101CE00963609 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD432AD2BE101CE00963609 /* MotionTests.swift in Sources */,
+				CFD432B32BE101D500963609 /* GyroProviderTests.swift in Sources */,
+				CFD432B52BE10CA300963609 /* MockedGyroProvider.swift in Sources */,
+				CFD432B42BE102DE00963609 /* Factory.swift in Sources */,
+				CFD432B62BE10CAF00963609 /* GyroProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFD432AF2BE101CE00963609 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFD432862BE0FA0C00963609 /* ControlWithMotion */;
+			targetProxy = CFD432AE2BE101CE00963609 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CFD432902BE0FA0D00963609 /* Main.storyboard */ = {
@@ -295,11 +397,13 @@
 				DEVELOPMENT_TEAM = KQ46EWSK84;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ControlWithMotion/Info.plist;
+				INFOPLIST_KEY_NSFallDetectionUsageDescription = "Application could not be able to control video";
+				INFOPLIST_KEY_NSMotionUsageDescription = "This app using Gyro to control video playback and volume";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,11 +427,13 @@
 				DEVELOPMENT_TEAM = KQ46EWSK84;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ControlWithMotion/Info.plist;
+				INFOPLIST_KEY_NSFallDetectionUsageDescription = "Application could not be able to control video";
+				INFOPLIST_KEY_NSMotionUsageDescription = "This app using Gyro to control video playback and volume";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,6 +444,42 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CFD432B12BE101CE00963609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ46EWSK84;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ensoreus.MotionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ControlWithMotion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ControlWithMotion";
+			};
+			name = Debug;
+		};
+		CFD432B22BE101CE00963609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ46EWSK84;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ensoreus.MotionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ControlWithMotion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ControlWithMotion";
 			};
 			name = Release;
 		};
@@ -358,6 +500,15 @@
 			buildConfigurations = (
 				CFD4329C2BE0FA1000963609 /* Debug */,
 				CFD4329D2BE0FA1000963609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFD432B02BE101CE00963609 /* Build configuration list for PBXNativeTarget "MotionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD432B12BE101CE00963609 /* Debug */,
+				CFD432B22BE101CE00963609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
