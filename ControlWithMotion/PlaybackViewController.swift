@@ -49,25 +49,20 @@ class PlaybackViewController: UIViewController{
 extension PlaybackViewController: GyroSubscriber {
 
     fileprivate func seekBy(_ timeOffset: CMTime) {
-        Task {
-            if CMTimeGetSeconds(timeOffset) > 4 {
-                await player.seek(to: timeOffset, toleranceBefore: CMTimeMake(value: 1, timescale: 3), toleranceAfter: CMTime(value: 1, timescale: 3))
-                player.play()
+            if CMTimeGetSeconds(timeOffset) > 1 {
+                 player.seek(to: timeOffset, toleranceBefore: CMTimeMake(value: 1, timescale: 3), toleranceAfter: CMTime(value: 1, timescale: 3))
             }
-        }
     }
     
     func back(time: CMTime) {
         let timeNow = player.currentTime()
         let timeOffset = CMTimeSubtract(timeNow, time)
-        print("TimeOffset BACK:\(CMTimeGetSeconds(timeOffset))")
         seekBy(timeOffset)
     }
 
     func forward(time: CMTime){
         let timeNow = player.currentTime()
         let timeOffset = CMTimeAdd(timeNow, time)
-        print("TimeOffset FORWARD:\(CMTimeGetSeconds(timeOffset))")
         seekBy(timeOffset)
     }
 

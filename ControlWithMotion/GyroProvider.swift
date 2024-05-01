@@ -56,12 +56,13 @@ final class GyroProvider: GyroProviderProtocol {
             let volumeShift = self.rotationToVolume(gyroRotation: vertRotation)
             self.gyroSubscriber?.volume(change: volumeShift)
             let positionShift = self.rotationToTime(gyroRotation: horizRotation)
+            guard CMTimeGetSeconds(positionShift) > 0 else { return }
+
             if horizRotation > 0.5 {
                 self.gyroSubscriber?.forward(time: positionShift)
             } else if horizRotation < -0.5 {
                 self.gyroSubscriber?.back(time: positionShift)
             }
-
         }
     }
 
@@ -74,15 +75,23 @@ final class GyroProvider: GyroProviderProtocol {
     }
 
     private func rotationToTime(gyroRotation: Double) -> CMTime {
-        var velocity: Float = 0.0
-        var friction = Float(gyroRotation)
-        var time: Int32 = 0
-        //guard abs(lastHorizontalFriction) < abs(friction) else { return CMTimeMake(value: 0, timescale: 1)}
+        let friction = Float(abs(gyroRotation))
+        lastHorizontalFriction *= 0.1 // fade the lastHorizontalFriction away to add some resistance
 
-        let scaled = roundf(Float(friction) * 10.0) / 10.0
-        let timeToSeek = CMTimeMake(value: Int64(scaled), timescale: 1) //Int32(abs(lastHorizontalFriction - friction))
-        print("Friction:\(scaled)")
-        lastHorizontalFriction = friction
-        return timeToSeek
+        // Ensure that fresh friction higher than lastHorizontalFriction
+        if lastHorizontalFriction < friction {
+            let scaled = roundf(Float(friction) * 10.0) / 10.0
+            let timeToSeek = CMTimeMake(value: Int64(scaled), timescale: 1)
+            lastHorizontalFriction = friction
+            return timeToSeek
+        } else {
+            return CMTimeMake(value: 0, timescale: 1)
+        }
+
+
+
+
+
+
     }
 }
