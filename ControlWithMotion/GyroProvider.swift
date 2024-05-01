@@ -36,8 +36,20 @@ protocol AccelerometerTrackerProtocol {
 protocol GyroProviderProtocol: GyroMotionTrackerProtocol { }
 
 final class GyroProvider: GyroProviderProtocol {
+    private enum Constants {
+        static let gyroUpdateInterval = 0.1
+        static let positiveGyroThreshold = 0.5
+        static let negativeGyroThreshold = -0.5
+        static let volumeSensibilityNominator: Float = 10.0
+        static let volumeSensibilityDenominator: Float = 100.0
+        static let playbackSensibilityNominator: Float = 10
+        static let playbackSensibilityDenominator: Float = 10
+        static let horizontalFrictionAttenuator: Float = 0.1
+    }
+    
     private var lastHorizontalFriction: Float = 0.0
     private var motionManager: CMMotionManager?
+
     weak var gyroSubscriber: GyroSubscriber?
     weak var accelerometerSubscriber: AccelerometerSubscriber?
     weak var pedometerSubscriber: PedometerSubscriber?
@@ -49,7 +61,7 @@ final class GyroProvider: GyroProviderProtocol {
 
     func startGyroMotionCapture(with subscriber: GyroSubscriber) {
         gyroSubscriber = subscriber
-        motionManager?.gyroUpdateInterval = 0.1
+        motionManager?.gyroUpdateInterval = Constants.gyroUpdateInterval
         motionManager?.startGyroUpdates(to: OperationQueue.main) { (gyroData: CMGyroData?, NSError)->Void in
             guard let vertRotation = gyroData?.rotationRate.y else { return }
             guard let horizRotation = gyroData?.rotationRate.x else { return }
@@ -58,9 +70,9 @@ final class GyroProvider: GyroProviderProtocol {
             let positionShift = self.rotationToTime(gyroRotation: horizRotation)
             guard CMTimeGetSeconds(positionShift) > 0 else { return }
 
-            if horizRotation > 0.5 {
+            if horizRotation > Constants.positiveGyroThreshold {
                 self.gyroSubscriber?.forward(time: positionShift)
-            } else if horizRotation < -0.5 {
+            } else if horizRotation < Constants.negativeGyroThreshold {
                 self.gyroSubscriber?.back(time: positionShift)
             }
         }
@@ -71,16 +83,17 @@ final class GyroProvider: GyroProviderProtocol {
     }
 
     private func rotationToVolume(gyroRotation: Double) -> Float {
-       roundf(Float(gyroRotation) * 10.0) / 100.0
+       roundf(Float(gyroRotation) * Constants.volumeSensibilityNominator) / Constants.volumeSensibilityDenominator
     }
 
     private func rotationToTime(gyroRotation: Double) -> CMTime {
         let friction = Float(abs(gyroRotation))
-        lastHorizontalFriction *= 0.1 // fade the lastHorizontalFriction away to add some resistance
+        // fade the lastHorizontalFriction away to add some resistance
+        lastHorizontalFriction *= Constants.horizontalFrictionAttenuator
 
         // Ensure that fresh friction higher than lastHorizontalFriction
         if lastHorizontalFriction < friction {
-            let scaled = roundf(Float(friction) * 10.0) / 10.0
+            let scaled = roundf(Float(friction) * Constants.playbackSensibilityNominator) / Constants.playbackSensibilityDenominator
             let timeToSeek = CMTimeMake(value: Int64(scaled), timescale: 1)
             lastHorizontalFriction = friction
             return timeToSeek
