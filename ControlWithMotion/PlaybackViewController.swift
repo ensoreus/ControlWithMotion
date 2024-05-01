@@ -31,7 +31,6 @@ class PlaybackViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         player.play()
-        print("VOLUM: \(player.volume)")
     }
 
     fileprivate func setupPlayer() {
@@ -42,21 +41,36 @@ class PlaybackViewController: UIViewController{
 
     private func backToBegin() {
       //  player.pause()
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.impactOccurred()
-
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         seek = CMTime(seconds: 0, preferredTimescale: 1)
     }
 }
 
 extension PlaybackViewController: GyroSubscriber {
 
-    func back(time: CMTime){
-
+    fileprivate func seekBy(_ timeOffset: CMTime) {
+        Task {
+            if CMTimeGetSeconds(timeOffset) > 4 {
+                await player.seek(to: timeOffset, toleranceBefore: CMTimeMake(value: 1, timescale: 3), toleranceAfter: CMTime(value: 1, timescale: 3))
+                player.play()
+            }
+        }
     }
+    
+    func back(time: CMTime) {
+        let timeNow = player.currentTime()
+        let timeOffset = CMTimeSubtract(timeNow, time)
+        print("TimeOffset BACK:\(CMTimeGetSeconds(timeOffset))")
+        seekBy(timeOffset)
+    }
+
     func forward(time: CMTime){
-
+        let timeNow = player.currentTime()
+        let timeOffset = CMTimeAdd(timeNow, time)
+        print("TimeOffset FORWARD:\(CMTimeGetSeconds(timeOffset))")
+        seekBy(timeOffset)
     }
+
     func volume(change on: Float){
         volume += on
     }

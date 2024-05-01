@@ -9,7 +9,7 @@ import XCTest
 
 final class GyroProviderTests: XCTestCase {
     var gyroProvider: GyroProviderProtocol?
-
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

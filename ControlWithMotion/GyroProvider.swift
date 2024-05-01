@@ -36,7 +36,7 @@ protocol AccelerometerTrackerProtocol {
 protocol GyroProviderProtocol: GyroMotionTrackerProtocol { }
 
 final class GyroProvider: GyroProviderProtocol {
-    
+    private var lastHorizontalFriction: Float = 0.0
     private var motionManager: CMMotionManager?
     weak var gyroSubscriber: GyroSubscriber?
     weak var accelerometerSubscriber: AccelerometerSubscriber?
@@ -52,8 +52,16 @@ final class GyroProvider: GyroProviderProtocol {
         motionManager?.gyroUpdateInterval = 0.1
         motionManager?.startGyroUpdates(to: OperationQueue.main) { (gyroData: CMGyroData?, NSError)->Void in
             guard let vertRotation = gyroData?.rotationRate.y else { return }
-            let value = self.rotationTo(volume: vertRotation)
-            self.gyroSubscriber?.volume(change: value)
+            guard let horizRotation = gyroData?.rotationRate.x else { return }
+            let volumeShift = self.rotationToVolume(gyroRotation: vertRotation)
+            self.gyroSubscriber?.volume(change: volumeShift)
+            let positionShift = self.rotationToTime(gyroRotation: horizRotation)
+            if horizRotation > 0.5 {
+                self.gyroSubscriber?.forward(time: positionShift)
+            } else if horizRotation < -0.5 {
+                self.gyroSubscriber?.back(time: positionShift)
+            }
+
         }
     }
 
@@ -61,8 +69,20 @@ final class GyroProvider: GyroProviderProtocol {
         motionManager?.stopGyroUpdates()
     }
 
-    private func rotationTo(volume: Double) -> Float {
-        return roundf(Float(volume) * 10.0) / 100.0
+    private func rotationToVolume(gyroRotation: Double) -> Float {
+       roundf(Float(gyroRotation) * 10.0) / 100.0
     }
 
+    private func rotationToTime(gyroRotation: Double) -> CMTime {
+        var velocity: Float = 0.0
+        var friction = Float(gyroRotation)
+        var time: Int32 = 0
+        //guard abs(lastHorizontalFriction) < abs(friction) else { return CMTimeMake(value: 0, timescale: 1)}
+
+        let scaled = roundf(Float(friction) * 10.0) / 10.0
+        let timeToSeek = CMTimeMake(value: Int64(scaled), timescale: 1) //Int32(abs(lastHorizontalFriction - friction))
+        print("Friction:\(scaled)")
+        lastHorizontalFriction = friction
+        return timeToSeek
+    }
 }
