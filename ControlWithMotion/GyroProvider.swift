@@ -13,27 +13,21 @@ protocol AccelerometerSubscriber: AnyObject {
     func shaked()
 }
 
-protocol PedometerSubscriber: AnyObject {
-    func movedAround(meters: Int)
-}
-
 protocol GyroSubscriber: AnyObject {
     func back(time: CMTime)
     func forward(time: CMTime)
     func volume(change on: Float)
 }
 
-protocol GyroMotionTrackerProtocol {
+protocol GyroProviderProtocol {
     func startGyroMotionCapture(with subscriber: GyroSubscriber)
     func stopGyroMotionCapture()
 }
 
-protocol AccelerometerTrackerProtocol {
+protocol AccelerometerProtocol {
     func startAccelerometerMotionCapture(with: AccelerometerSubscriber)
     func stopAccelerometerMotionCapture()
 }
-
-protocol GyroProviderProtocol: GyroMotionTrackerProtocol { }
 
 final class GyroProvider: GyroProviderProtocol {
     private enum Constants {
@@ -52,7 +46,6 @@ final class GyroProvider: GyroProviderProtocol {
 
     weak var gyroSubscriber: GyroSubscriber?
     weak var accelerometerSubscriber: AccelerometerSubscriber?
-    weak var pedometerSubscriber: PedometerSubscriber?
 
     init?() {
         motionManager = CMMotionManager()
@@ -100,11 +93,5 @@ final class GyroProvider: GyroProviderProtocol {
         } else {
             return CMTimeMake(value: 0, timescale: 1)
         }
-
-
-
-
-
-
     }
 }

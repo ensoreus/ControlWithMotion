@@ -9,7 +9,7 @@ import Foundation
 import CoreMotion
 import AVFoundation
 
-enum MockedGyroManager {
+enum MockedGyro {
     case steady
     case tiltingZ
     case tiltingX
@@ -40,11 +40,11 @@ final class MockedGyroProvider: GyroProviderProtocol {
 
     weak var subscriber: GyroSubscriber?
     private var timer: Timer?
-    var mockedGyroManager = MockedGyroManager.steady
+    var mockedGyro = MockedGyro.steady
 
     func startGyroMotionCapture(with subscriber: GyroSubscriber) {
-        timer = Timer(timeInterval: mockedGyroManager.interval(), repeats: true) { [weak self] timer in
-            self?.mockedGyroManager.generator(subscriber: subscriber)
+        timer = Timer(timeInterval: mockedGyro.interval(), repeats: true) { [weak self] timer in
+            self?.mockedGyro.generator(subscriber: subscriber)
         }
     }
     

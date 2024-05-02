@@ -22,6 +22,10 @@
 		CFD432B52BE10CA300963609 /* MockedGyroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */; };
 		CFD432B62BE10CAF00963609 /* GyroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4329E2BE0FA8500963609 /* GyroProvider.swift */; };
 		CFD432B82BE10E1800963609 /* WeAreGoingOnBullrun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CFD432B72BE10E1800963609 /* WeAreGoingOnBullrun.mp4 */; };
+		CFEB8ECC2BE2C81300A2486D /* PedometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB8ECB2BE2C81300A2486D /* PedometerProvider.swift */; };
+		CFEB8ECD2BE2C81300A2486D /* PedometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB8ECB2BE2C81300A2486D /* PedometerProvider.swift */; };
+		CFEB8ECF2BE394B100A2486D /* MockedPedometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB8ECE2BE394B100A2486D /* MockedPedometerProvider.swift */; };
+		CFEB8ED02BE394B100A2486D /* MockedPedometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB8ECE2BE394B100A2486D /* MockedPedometerProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,8 @@
 		CFD432AA2BE101CE00963609 /* MotionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD432AC2BE101CE00963609 /* MotionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionTests.swift; sourceTree = "<group>"; };
 		CFD432B72BE10E1800963609 /* WeAreGoingOnBullrun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeAreGoingOnBullrun.mp4; sourceTree = "<group>"; };
+		CFEB8ECB2BE2C81300A2486D /* PedometerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerProvider.swift; sourceTree = "<group>"; };
+		CFEB8ECE2BE394B100A2486D /* MockedPedometerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPedometerProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +101,14 @@
 				CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */,
 				CFD4328E2BE0FA0C00963609 /* PlaybackViewController.swift */,
 				CFD4329E2BE0FA8500963609 /* GyroProvider.swift */,
+				CFEB8ECB2BE2C81300A2486D /* PedometerProvider.swift */,
 				CFD432A02BE0FAAA00963609 /* Factory.swift */,
 				CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */,
 				CFD432902BE0FA0D00963609 /* Main.storyboard */,
 				CFD432932BE0FA1000963609 /* Assets.xcassets */,
 				CFD432952BE0FA1000963609 /* LaunchScreen.storyboard */,
 				CFD432982BE0FA1000963609 /* Info.plist */,
+				CFEB8ECE2BE394B100A2486D /* MockedPedometerProvider.swift */,
 			);
 			path = ControlWithMotion;
 			sourceTree = "<group>";
@@ -220,9 +228,11 @@
 				CFD4328F2BE0FA0C00963609 /* PlaybackViewController.swift in Sources */,
 				CFD4329F2BE0FA8500963609 /* GyroProvider.swift in Sources */,
 				CFD432A32BE0FAC500963609 /* MockedGyroProvider.swift in Sources */,
+				CFEB8ECF2BE394B100A2486D /* MockedPedometerProvider.swift in Sources */,
 				CFD4328B2BE0FA0C00963609 /* AppDelegate.swift in Sources */,
 				CFD4328D2BE0FA0C00963609 /* SceneDelegate.swift in Sources */,
 				CFD432A12BE0FAAA00963609 /* Factory.swift in Sources */,
+				CFEB8ECC2BE2C81300A2486D /* PedometerProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,10 +240,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEB8ED02BE394B100A2486D /* MockedPedometerProvider.swift in Sources */,
 				CFD432AD2BE101CE00963609 /* MotionTests.swift in Sources */,
 				CFD432B32BE101D500963609 /* GyroProviderTests.swift in Sources */,
 				CFD432B52BE10CA300963609 /* MockedGyroProvider.swift in Sources */,
 				CFD432B42BE102DE00963609 /* Factory.swift in Sources */,
+				CFEB8ECD2BE2C81300A2486D /* PedometerProvider.swift in Sources */,
 				CFD432B62BE10CAF00963609 /* GyroProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

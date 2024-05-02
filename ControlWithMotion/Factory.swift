@@ -57,6 +57,15 @@ enum Factory {
         }
     }
 
+    func pedometerProvider() -> PedometerProtocol {
+        switch self {
+        case .production:
+            return PedometerProvider()
+        case .unittesting:
+            return MockedPedometerProvider()
+        }
+    }
+
     func playerItem() -> AVPlayerItem {
         switch self {
         case .production:

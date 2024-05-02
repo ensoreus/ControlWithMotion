@@ -12,12 +12,16 @@ class PlaybackViewController: UIViewController{
     private enum Constants {
         static let tolerance = CMTimeMake(value: 1, timescale: 3)
         static let playStartPosition = CMTime(seconds: 0.0, preferredTimescale: 1)
+        static let defaultVolume: Float = 0.5
+        static let distanceToPause: Int = 10
+        static let timeShiftSecondsThresholdToAffect: Double = 1.0
     }
 
     private var player = AVPlayer(playerItem: Factory.production.playerItem())
     private let gyroProvider = Factory.production.gyroProvider()
+    private let pedometerProvider = Factory.production.pedometerProvider()
 
-    var volume: Float = 0.5 {
+    var volume: Float = Constants.defaultVolume {
         didSet {
             player.volume = volume
         }
@@ -31,10 +35,20 @@ class PlaybackViewController: UIViewController{
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        player.play()
+        startPlayback()
     }
 
-    fileprivate func setupPlayer() {
+    private func startPlayback() {
+        player.play()
+        pedometerProvider.startPedometerCapture(with: self)
+    }
+
+    private func pausePlayback() {
+        player.pause()
+        pedometerProvider.stopPedometerCapture()
+    }
+
+    private func setupPlayer() {
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = view.bounds
         view.layer.addSublayer(playerLayer)
@@ -50,8 +64,8 @@ class PlaybackViewController: UIViewController{
 
 extension PlaybackViewController: GyroSubscriber {
 
-    fileprivate func seekBy(_ timeOffset: CMTime) {
-            if CMTimeGetSeconds(timeOffset) > 1 {
+    private func seekBy(_ timeOffset: CMTime) {
+        if CMTimeGetSeconds(timeOffset) > Constants.timeShiftSecondsThresholdToAffect {
                 player.seek(to: timeOffset,
                             toleranceBefore: Constants.tolerance,
                             toleranceAfter: Constants.tolerance)
@@ -76,3 +90,12 @@ extension PlaybackViewController: GyroSubscriber {
 
 }
 
+extension PlaybackViewController: PedometerSubscriber {
+    func movedAround(meters: Int) {
+        if meters >= Constants.distanceToPause {
+            DispatchQueue.main.async { [weak self] in
+                self?.pausePlayback()
+            }
+        }
+    }
+}
