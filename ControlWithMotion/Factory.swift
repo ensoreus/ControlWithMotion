@@ -46,6 +46,7 @@ enum Factory {
 
     case production
     case unittesting
+    private static let motionManager = CMMotionManager()
 
     func gyroProvider() -> GyroProviderProtocol {
         switch self {
@@ -63,6 +64,25 @@ enum Factory {
             return PedometerProvider()
         case .unittesting:
             return MockedPedometerProvider()
+        }
+    }
+
+    func accelerometerProvider() -> AccelerometerProtocol {
+        switch self {
+        case .production:
+            guard let accelerometerProvider = AccelerometereProvider() else { fatalError("Accelerometer not found on this device")}
+            return accelerometerProvider
+        case .unittesting:
+            return MockedAccelerometerProvider()
+        }
+    }
+
+    func motionManager() -> CMMotionManager? {
+        switch self {
+        case .production:
+            return Factory.motionManager
+        case .unittesting:
+            return nil
         }
     }
 

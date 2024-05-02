@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF631FAD2BE3B34300091D36 /* AccelerometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF631FAC2BE3B34300091D36 /* AccelerometerProvider.swift */; };
+		CF631FAF2BE3B90300091D36 /* MockedAccelerometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF631FAE2BE3B90300091D36 /* MockedAccelerometerProvider.swift */; };
+		CF631FB02BE3B90600091D36 /* MockedAccelerometerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF631FAE2BE3B90300091D36 /* MockedAccelerometerProvider.swift */; };
 		CFD4328B2BE0FA0C00963609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328A2BE0FA0C00963609 /* AppDelegate.swift */; };
 		CFD4328D2BE0FA0C00963609 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */; };
 		CFD4328F2BE0FA0C00963609 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4328E2BE0FA0C00963609 /* PlaybackViewController.swift */; };
@@ -39,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF631FAC2BE3B34300091D36 /* AccelerometerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerProvider.swift; sourceTree = "<group>"; };
+		CF631FAE2BE3B90300091D36 /* MockedAccelerometerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedAccelerometerProvider.swift; sourceTree = "<group>"; };
 		CFD432872BE0FA0C00963609 /* ControlWithMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlWithMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD4328A2BE0FA0C00963609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +81,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF631FAA2BE3AED000091D36 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4329E2BE0FA8500963609 /* GyroProvider.swift */,
+				CFEB8ECB2BE2C81300A2486D /* PedometerProvider.swift */,
+				CF631FAC2BE3B34300091D36 /* AccelerometerProvider.swift */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		CF631FAB2BE3AEE300091D36 /* MockedDataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */,
+				CFEB8ECE2BE394B100A2486D /* MockedPedometerProvider.swift */,
+				CF631FAE2BE3B90300091D36 /* MockedAccelerometerProvider.swift */,
+			);
+			path = MockedDataProviders;
+			sourceTree = "<group>";
+		};
 		CFD4327E2BE0FA0C00963609 = {
 			isa = PBXGroup;
 			children = (
@@ -100,15 +125,13 @@
 				CFD4328A2BE0FA0C00963609 /* AppDelegate.swift */,
 				CFD4328C2BE0FA0C00963609 /* SceneDelegate.swift */,
 				CFD4328E2BE0FA0C00963609 /* PlaybackViewController.swift */,
-				CFD4329E2BE0FA8500963609 /* GyroProvider.swift */,
-				CFEB8ECB2BE2C81300A2486D /* PedometerProvider.swift */,
 				CFD432A02BE0FAAA00963609 /* Factory.swift */,
-				CFD432A22BE0FAC500963609 /* MockedGyroProvider.swift */,
+				CF631FAA2BE3AED000091D36 /* DataProviders */,
+				CF631FAB2BE3AEE300091D36 /* MockedDataProviders */,
 				CFD432902BE0FA0D00963609 /* Main.storyboard */,
 				CFD432932BE0FA1000963609 /* Assets.xcassets */,
 				CFD432952BE0FA1000963609 /* LaunchScreen.storyboard */,
 				CFD432982BE0FA1000963609 /* Info.plist */,
-				CFEB8ECE2BE394B100A2486D /* MockedPedometerProvider.swift */,
 			);
 			path = ControlWithMotion;
 			sourceTree = "<group>";
@@ -227,8 +250,10 @@
 			files = (
 				CFD4328F2BE0FA0C00963609 /* PlaybackViewController.swift in Sources */,
 				CFD4329F2BE0FA8500963609 /* GyroProvider.swift in Sources */,
+				CF631FAD2BE3B34300091D36 /* AccelerometerProvider.swift in Sources */,
 				CFD432A32BE0FAC500963609 /* MockedGyroProvider.swift in Sources */,
 				CFEB8ECF2BE394B100A2486D /* MockedPedometerProvider.swift in Sources */,
+				CF631FAF2BE3B90300091D36 /* MockedAccelerometerProvider.swift in Sources */,
 				CFD4328B2BE0FA0C00963609 /* AppDelegate.swift in Sources */,
 				CFD4328D2BE0FA0C00963609 /* SceneDelegate.swift in Sources */,
 				CFD432A12BE0FAAA00963609 /* Factory.swift in Sources */,
@@ -247,6 +272,7 @@
 				CFD432B42BE102DE00963609 /* Factory.swift in Sources */,
 				CFEB8ECD2BE2C81300A2486D /* PedometerProvider.swift in Sources */,
 				CFD432B62BE10CAF00963609 /* GyroProvider.swift in Sources */,
+				CF631FB02BE3B90600091D36 /* MockedAccelerometerProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

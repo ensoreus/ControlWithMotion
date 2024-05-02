@@ -9,10 +9,6 @@ import Foundation
 import AVFoundation
 import CoreMotion
 
-protocol AccelerometerSubscriber: AnyObject {
-    func shaked()
-}
-
 protocol GyroSubscriber: AnyObject {
     func back(time: CMTime)
     func forward(time: CMTime)
@@ -24,10 +20,6 @@ protocol GyroProviderProtocol {
     func stopGyroMotionCapture()
 }
 
-protocol AccelerometerProtocol {
-    func startAccelerometerMotionCapture(with: AccelerometerSubscriber)
-    func stopAccelerometerMotionCapture()
-}
 
 final class GyroProvider: GyroProviderProtocol {
     private enum Constants {
@@ -39,17 +31,18 @@ final class GyroProvider: GyroProviderProtocol {
         static let playbackSensibilityNominator: Float = 10
         static let playbackSensibilityDenominator: Float = 10
         static let horizontalFrictionAttenuator: Float = 0.1
+        static let zeroTimeShift = CMTimeMake(value: 0, timescale: 1)
     }
     
     private var lastHorizontalFriction: Float = 0.0
     private var motionManager: CMMotionManager?
 
     weak var gyroSubscriber: GyroSubscriber?
-    weak var accelerometerSubscriber: AccelerometerSubscriber?
 
     init?() {
-        motionManager = CMMotionManager()
-        guard ((motionManager?.isGyroAvailable) != nil) else { return nil }
+        guard let motionManager = Factory.production.motionManager() else { return nil }
+        self.motionManager = motionManager
+        guard motionManager.isGyroAvailable else { return nil }
     }
 
     func startGyroMotionCapture(with subscriber: GyroSubscriber) {
@@ -91,7 +84,7 @@ final class GyroProvider: GyroProviderProtocol {
             lastHorizontalFriction = friction
             return timeToSeek
         } else {
-            return CMTimeMake(value: 0, timescale: 1)
+            return Constants.zeroTimeShift
         }
     }
 }

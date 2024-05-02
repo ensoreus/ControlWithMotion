@@ -25,6 +25,7 @@ final class PedometerProvider: PedometerProtocol {
     init() {
         pedometer = CMPedometer()
         if CMPedometer.authorizationStatus() != .authorized {
+            // Just to ack for permission. No other way to do it fancy
             pedometer?.queryPedometerData(from: .now, to: .now, withHandler: { _, _ in })
         }
     }

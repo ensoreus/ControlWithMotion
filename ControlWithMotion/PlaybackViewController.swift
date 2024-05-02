@@ -20,6 +20,7 @@ class PlaybackViewController: UIViewController{
     private var player = AVPlayer(playerItem: Factory.production.playerItem())
     private let gyroProvider = Factory.production.gyroProvider()
     private let pedometerProvider = Factory.production.pedometerProvider()
+    private let accelerometerProvider = Factory.production.accelerometerProvider()
 
     var volume: Float = Constants.defaultVolume {
         didSet {
@@ -31,6 +32,7 @@ class PlaybackViewController: UIViewController{
         super.viewDidLoad()
         setupPlayer()
         gyroProvider.startGyroMotionCapture(with: self)
+        accelerometerProvider.startAccelerometerMotionCapture(with: self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -97,5 +99,11 @@ extension PlaybackViewController: PedometerSubscriber {
                 self?.pausePlayback()
             }
         }
+    }
+}
+
+extension PlaybackViewController: AccelerometerSubscriber {
+    func shaked() {
+        backToBegin()
     }
 }
